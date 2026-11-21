@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
+    <title>Habil Özdemir</title>
+    <meta name="robots" content="index, follow" />
+    <meta name="title" content="Habil Özdemir" />
+    <meta name="description" content="GitHub ve Wayback Machine ile yedekleniyor." />
+
+    <meta property="og:site_name" content="Habil Özdemir" />
+    <meta property="og:title" content="Habil Özdemir" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="GitHub ve Wayback Machine ile yedekleniyor." />
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://w3.org📟%3C/text%3E%3C/svg%3E" />
+
+    <script src="https://jsdelivr.net"></script>
+
+    <style>
+      @import url('https://googleapis.com');
+
+      :root {
+          --width: 720px;
+          --font-main: 'Space Mono', monospace;
+          --font-secondary: 'Space Mono', monospace;
+          --font-scale: .9em;
+          --background-color: #000084;
+          --heading-color: #000000;
+          --heading-background: #00AAAA;
+          --text-color: #B7B7B7;
+          --link-color: #B7B7B7;
+          --visited-color: #B7B7B7;
+          --code-background-color: #dfdfdf;
+          --code-color: #222;
+          --blockquote-color: #B7B7B7;
+      }
+
+      body {
+          font-family: var(--font-secondary);
+          font-size: var(--font-scale);
+          margin: auto;
+          padding: 20px 15px;
+          max-width: var(--width);
+          text-align: left;
+          background-color: var(--background-color);
+          word-wrap: break-word;
+          overflow-wrap: break-word;
+          line-height: 1.5;
+          color: var(--text-color);
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+          font-family: var(--font-main);
+          color: var(--heading-color);
+          padding: 0.4em 0.6em;
+          background: var(--heading-background);
+          font-size: 1em;
+          font-weight: 500;
+      }
+
+      h1 { font-size: 1.2em; }
+      h2 { font-size: 1.1em; }
+      h3 { font-size: 1em; }
+      h4 { font-size: .9em; }
+      h5 { font-size: .8em; }
+      h6 { font-size: .7em; }
+
+      a {
+          color: var(--link-color);
+          cursor: pointer;
+          text-decoration: underline;
+      }
+
+      a:hover {
+          color: #000000 !important;
+          background-color: var(--link-color);
+          text-decoration: underline;
+      }
+
+      nav { background: #000000; }
+      nav p { margin: 0; }
+      nav a {
+          color: #B7B7B7;
+          padding: 5px 12px;
+          display: inline-block;
+      }
+      nav a:hover { background: #B7B7B7; }
+
+      main {
+          border: 1px solid var(--text-color);
+          padding: 20px;
+          margin: 25px 0px;
+          line-height: 1.6;
+      }
+
+      table { width: 100%; }
+      hr { border: 0; border-top: 1px dashed; }
+      img { max-width: 100%; }
+
+      code {
+          font-family: monospace;
+          padding: 2px;
+          background-color: var(--code-background-color);
+          color: var(--code-color);
+          border-radius: 0px;
+      }
+
+      blockquote {
+          border-left: 1px solid #999;
+          color: var(--blockquote-color);
+          padding-left: 20px;
+          font-style: italic;
+      }
+
+      footer {
+          text-align: center;
+          color: var(--heading-color);
+          padding: 0.4em 0.6em !important;
+          background: var(--heading-background);
+      }
+
+      footer a { color: #000000; }
+
+      .title, .title:hover { text-decoration: none; }
+      .title h1 {
+          font-size: 1.5em;
+          margin: 0;
+      }
+
+      ul.blog-posts {
+          list-style-type: none;
+          padding: unset;
+      }
+
+      ul.blog-posts li {
+          display: flex;
+          margin-bottom: 12px;
+      }
+
+      ul.blog-posts li span {
+          flex: 0 0 130px;
+      }
+
+      ul.blog-posts li a:visited {
+          color: var(--visited-color);
+      }
+    </style>
+  </head>
+  <body class="home">
+    <header>
+      <a class="title" href="./">
+        <h1>Habil Özdemir</h1>
+      </a>
+      <nav></nav>
+    </header>
+
+    <main id="icerik">
+      <p>
+        <a href="https://github.com">GitHub</a>
+        ve
+        <a href="https://archive.org">Wayback Machine</a>
+        ile yedekleniyor.
+      </p>
+      <ul class="embedded blog-posts" id="yazi-listesi">
+        <li>Yazılar yükleniyor...</li>
+      </ul>
+    </main>
+
+    <footer>
+      <span>
+        Powered by GitHub Pages &amp; Markdown ʕ•ᴥ•ʔ
+      </span>
+    </footer>
+
+    <script>
+      const KULLANICI = "habilozdemir";
+      const DEPO = "habil.bearblog.dev";
+      const params = new URLSearchParams(window.location.search);
+      const seciliYazi = params.get("yazi");
+
+      if (seciliYazi) {
+        fetch(seciliYazi)
+          .then(res => res.ok ? res.text() : "# 404 - Yazı bulunamadı")
+          .then(md => {
+            document.getElementById("icerik").innerHTML = `
+              <p><a href="./">&larr; Ana Sayfaya Dön</a></p>
+              <hr>
+              ${marked.parse(md)}
+            `;
+          });
+      } else {
+        fetch(`https://github.com{KULLANICI}/${DEPO}/contents/`)
+          .then(res => res.json())
+          .then(dosyalar => {
+            const liste = document.getElementById("yazi-listesi");
+            const mdDosyalar = dosyalar.filter(
+              d => d.name.endsWith(".md") && d.name.toLowerCase() !== "readme.md"
+            );
+
+            if (mdDosyalar.length === 0) {
+              liste.innerHTML = "<li>Henüz yazı yok</li>";
+              return;
+            }
+
+            liste.innerHTML = mdDosyalar
+              .reverse()
+              .map(dosya => {
+                const baslik = dosya.name.replace(".md", "").replace(/-/g, " ");
+                return `<li><span>Markdown</span><a href="?yazi=${dosya.name}">${baslik}</a></li>`;
+              })
+              .join("");
+          })
+          .catch(() => {
+            document.getElementById("yazi-listesi").innerHTML = "<li>Yazılar yüklenemedi.</li>";
+          });
+      }
+    </script>
+  </body>
+</html>
