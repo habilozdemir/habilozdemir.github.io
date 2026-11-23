@@ -2,4 +2,6 @@
 
 [Yasal Uyarı ve Sorumluluk Reddi](./yasal-uyari.md)
 
+---
+
 * No posts yet
