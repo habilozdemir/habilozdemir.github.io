@@ -4,3 +4,4 @@ Nostr ile merkeziyetsiz olarak yedekleniyor. GitHub [deposunu](https://github.co
 
 * [quran-digital-archive](https://github.com/habilozdemir/quran-digital-archive)
 * [nostr-archive](https://github.com/habilozdemir/nostr-archive)
+* [mastodon-archive](https://github.com/habilozdemir/mastodon-archive)
