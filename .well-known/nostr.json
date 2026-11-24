@@ -5,11 +5,13 @@
   },
   "relays": {
     "c564fc933262c45412b9f548fcae2f810ec58fe92a241bf8d7e1503a46ddca0c": [
-      "wss://atlas.nostr.land/invoices",
-      "wss://bucket.coracle.social/lima-xray",
+      "wss://nos.lol",
+      "wss://offchain.pub",
+      "wss://purplerelay.com",
       "wss://relay.damus.io",
-      "wss://relay.jeffg.fyi/india-yonder-zenith",
-      "wss://relay.primal.net"
+      "wss://relay.nostr.net",
+      "wss://relay.primal.net",
+      "wss://relay.snort.social"
     ]
   }
 }
