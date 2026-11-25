@@ -9,3 +9,4 @@ Nostr ile merkeziyetsiz olarak yedekleniyor. GitHub [deposunu](https://github.co
 * [medium-archive-2](https://github.com/habilozdemir/medium-archive-2)
 * [notes-archive](https://github.com/habilozdemir/notes-archive)
 * [mantik.blog](https://github.com/habilozdemir/mantik.blog)
+* [habil-ozdemirin-yazilari](https://github.com/habilozdemir/habil-ozdemirin-yazilari)
