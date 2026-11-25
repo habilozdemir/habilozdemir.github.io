@@ -7,4 +7,3 @@ Nostr ile merkeziyetsiz olarak yedekleniyor. GitHub [deposunu](https://github.co
 * [mastodon-archive](https://github.com/habilozdemir/mastodon-archive)
 * [medium-archive](https://github.com/habilozdemir/medium-archive)
 * [medium-archive-2](https://github.com/habilozdemir/medium-archive-2)
-* [medium-archive-3](https://github.com/habilozdemir/medium-archive-3)
