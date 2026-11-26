@@ -26,9 +26,8 @@ Nostr ile merkeziyetsiz olarak yedekleniyor. GitHub [deposunu](https://github.co
     {% assign dakika = p[4] %}
     {% assign ay_index = ay | minus: 1 %}
     {% assign ay_adi = aylar[ay_index] %}
-    {% assign onizleme = page.content | strip_html | strip_newlines | truncate: 70 %}
     {% capture okunakli_tarih %}{{ gun }} {{ ay_adi }} {{ yil }}, {{ saat }}:{{ dakika }}{% endcapture %}
-    {% capture sort_key %}{{ yil }}-{{ ay }}-{{ gun }}-{{ saat }}-{{ dakika }}|{{ page.url | relative_url }}|{{ okunakli_tarih }}|{{ onizleme }}{% endcapture %}
+    {% capture sort_key %}{{ yil }}-{{ ay }}-{{ gun }}-{{ saat }}-{{ dakika }}|{{ page.url | relative_url }}|{{ okunakli_tarih }}{% endcapture %}
     {% assign sorted_items = sorted_items | push: sort_key %}
   {% endif %}
 {% endfor %}
@@ -39,7 +38,6 @@ Nostr ile merkeziyetsiz olarak yedekleniyor. GitHub [deposunu](https://github.co
     {% assign parts = item | split: '|' %}
     {% assign link_url = parts[1] %}
     {% assign link_tarih = parts[2] %}
-    {% assign link_ozet = parts[3] %}
-    <li><a href="{{ link_url }}">{{ link_tarih }}</a> — {{ link_ozet }}</li>
+    <li><a href="{{ link_url }}">{{ link_tarih }}</a></li>
   {% endfor %}
 </ul>
