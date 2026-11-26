@@ -10,3 +10,13 @@ Nostr ile merkeziyetsiz olarak yedekleniyor. GitHub [deposunu](https://github.co
 * [notes-archive](https://github.com/habilozdemir/notes-archive)
 * [mantik.blog](https://github.com/habilozdemir/mantik.blog)
 * [habil-ozdemirin-yazilari](https://github.com/habilozdemir/habil-ozdemirin-yazilari)
+
+## Notlarım
+
+<ul>
+  {% for page in site.pages %}
+    {% if page.name contains '.md' and page.name != 'README.md' %}
+      <li><a href="{{ page.url | relative_url }}">{{ page.name | remove: '.md' }}</a></li>
+    {% endif %}
+  {% endfor %}
+</ul>
