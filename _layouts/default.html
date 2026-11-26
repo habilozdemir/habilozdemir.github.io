@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% assign first_line = content | strip_html | strip_newlines | truncate: 65 %}
+    {% if page.name == 'README.md' %}
+      <title>Habil Özdemir</title>
+    {% else %}
+      <title>{{ first_line }} | Habil Özdemir</title>
+    {% endif %}
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      <h1><a href="{{ '/' | absolute_url }}">Habil Özdemir</a></h1>
+      {{ content }}
+    </div>
+  </body>
+</html>
