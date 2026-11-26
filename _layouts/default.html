@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% assign first_line = content | strip_html | strip_newlines | truncate: 65 %}
-    {% assign meta_desc = content | strip_html | strip_newlines | truncate: 155 %}
+    {% assign temiz_metin = content | replace: '</p>', ' ' | replace: '<br>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | strip %}
+    {% assign first_line = temiz_metin | truncate: 65 %}
+    {% assign meta_desc = temiz_metin | truncate: 155 %}
     {% if page.name == 'README.md' %}
       <title>Habil Özdemir</title>
       <meta name="description" content="Habil Özdemir kişisel dijital arşiv ve notları.">
