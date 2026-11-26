@@ -33,6 +33,9 @@ Nostr ile merkeziyetsiz olarak yedekleniyor. GitHub [deposunu](https://github.co
 {% endfor %}
 {% assign sorted_items = sorted_items | sort | reverse %}
 
+## Hakkımda
+
+İslam mantığı ve sermaye piyasalarıyla ilgileniyorum. Sakarya'da ilk ve ortaöğrenimimi tamamladıktan sonra Apple Digital Masters ve Tidal MQA programlarına katılarak çeşitli projelerde görev aldım. 2021'den sonra odağımı finansal piyasalara çevirdim.
 <ul>
   {% for item in sorted_items %}
     {% assign parts = item | split: '|' %}
