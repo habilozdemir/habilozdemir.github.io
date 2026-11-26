@@ -13,12 +13,22 @@ Nostr ile merkeziyetsiz olarak yedekleniyor. GitHub [deposunu](https://github.co
 
 ## Notlarım
 
+{% assign aylar = "Ocak,Şubat,Mart,Nisan,Mayıs,Haziran,Temmuz,Ağustos,Eylül,Ekim,Kasım,Aralık" | split: "," %}
 {% assign sorted_items = "" | split: "" %}
 {% for page in site.pages %}
   {% if page.name contains '.md' and page.name != 'README.md' %}
     {% assign clean_name = page.name | remove: '.md' %}
     {% assign p = clean_name | split: '-' %}
-    {% capture sort_key %}{{ p[2] }}-{{ p[1] }}-{{ p[0] }}-{{ p[3] }}-{{ p[4] }}|{{ page.url | relative_url }}|{{ clean_name }}{% endcapture %}
+    {% assign gun = p[0] %}
+    {% assign ay = p[1] %}
+    {% assign yil = p[2] %}
+    {% assign saat = p[3] %}
+    {% assign dakika = p[4] %}
+    {% assign ay_index = ay | minus: 1 %}
+    {% assign ay_adi = aylar[ay_index] %}
+    {% assign onizleme = page.content | strip_html | strip_newlines | truncate: 70 %}
+    {% capture okunakli_tarih %}{{ gun }} {{ ay_adi }} {{ yil }}, {{ saat }}:{{ dakika }}{% endcapture %}
+    {% capture sort_key %}{{ yil }}-{{ ay }}-{{ gun }}-{{ saat }}-{{ dakika }}|{{ page.url | relative_url }}|{{ okunakli_tarih }}|{{ onizleme }}{% endcapture %}
     {% assign sorted_items = sorted_items | push: sort_key %}
   {% endif %}
 {% endfor %}
@@ -27,6 +37,9 @@ Nostr ile merkeziyetsiz olarak yedekleniyor. GitHub [deposunu](https://github.co
 <ul>
   {% for item in sorted_items %}
     {% assign parts = item | split: '|' %}
-    <li><a href="{{ parts[1] }}">{{ parts[2] }}</a></li>
+    {% assign link_url = parts[1] %}
+    {% assign link_tarih = parts[2] %}
+    {% assign link_ozet = parts[3] %}
+    <li><a href="{{ link_url }}">{{ link_tarih }}</a> — {{ link_ozet }}</li>
   {% endfor %}
 </ul>
