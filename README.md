@@ -13,10 +13,20 @@ Nostr ile merkeziyetsiz olarak yedekleniyor. GitHub [deposunu](https://github.co
 
 ## Notlarım
 
+{% assign sorted_items = "" | split: "" %}
+{% for page in site.pages %}
+  {% if page.name contains '.md' and page.name != 'README.md' %}
+    {% assign clean_name = page.name | remove: '.md' %}
+    {% assign p = clean_name | split: '-' %}
+    {% capture sort_key %}{{ p[2] }}-{{ p[1] }}-{{ p[0] }}-{{ p[3] }}-{{ p[4] }}|{{ page.url | relative_url }}|{{ clean_name }}{% endcapture %}
+    {% assign sorted_items = sorted_items | push: sort_key %}
+  {% endif %}
+{% endfor %}
+{% assign sorted_items = sorted_items | sort | reverse %}
+
 <ul>
-  {% for page in site.pages reversed %}
-    {% if page.name contains '.md' and page.name != 'README.md' %}
-      <li><a href="{{ page.url | relative_url }}">{{ page.name | remove: '.md' }}</a></li>
-    {% endif %}
+  {% for item in sorted_items %}
+    {% assign parts = item | split: '|' %}
+    <li><a href="{{ parts[1] }}">{{ parts[2] }}</a></li>
   {% endfor %}
 </ul>
