@@ -14,7 +14,7 @@ Nostr ile merkeziyetsiz olarak yedekleniyor. GitHub [deposunu](https://github.co
 ## Notlarım
 
 <ul>
-  {% for page in site.pages %}
+  {% for page in site.pages reversed %}
     {% if page.name contains '.md' and page.name != 'README.md' %}
       <li><a href="{{ page.url | relative_url }}">{{ page.name | remove: '.md' }}</a></li>
     {% endif %}
